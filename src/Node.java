@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Node{
     private int x;
     private int y;
@@ -8,10 +10,9 @@ public class Node{
     private int cost;
 
     //constructor
-    public Node(int x, int y, Node parent, char symbol){
+    public Node(int x, int y, char symbol){
         this.x = x;
         this.y = y;
-        this.parent = parent;
         this.symbol = symbol;
         visited = false;
         cost = 0;
@@ -33,6 +34,10 @@ public class Node{
 
     public void setCost(int cost){
         this.cost = cost;
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
 
     //get methods

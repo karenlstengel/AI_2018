@@ -17,7 +17,19 @@ public class Maze{
 
     //print maze
     // basic array print
+    public void printMaze(int[][] array){
+
+        for(int i = 0; i <array.length; i++){
+            for(int j = 0; j < array[0].length; j++){
+                System.out.print(array[i][j]);
+            }
+            System.out.println();
+        }
+    }
 
     //set search type
     // change search var to whichever search is desired
+    public void setSearch(IAlgorithm s){
+        search = s;
+    }
 }

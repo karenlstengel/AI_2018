@@ -38,13 +38,6 @@ public class Maze{
                 for(int j = 0; j < inLine.length(); j++) {
                     char c = inLine.charAt(j);
                     mArray[i][j] = c;
-
-                    if(c == 'P'){
-                        start = new Node(i,j, c);
-                    }
-                    if(c == '*'){
-                        goal = new Node(i,j,c);
-                    }
                 }
             }
 
@@ -58,11 +51,18 @@ public class Maze{
     }
 
     //build maze.
-    // start at the location of the start node previously saved and then create the search space graph
+    //create a temporary 2d array of same size as maze. create a new node for each index with the x,y coords and the symbol.
+    // THEN, start at the location of the start node previously saved and then create the search space graph
     // by checking each possible movement, 3 remaining directions excluding the parent,  and adding possible
-    // moves to the children lists. continue until every non % has been added
+    // moves to the children lists. continue until every non % has been added  (should have a skeleton form of the maze
     public void buildGraph(Node n){
-        //recursion?
+        // for later
+        // if(c == 'P'){
+        //                        start = new Node(i,j, c);
+        //                    }
+        //                    if(c == '*'){
+        //                        goal = new Node(i,j,c);
+        //                    }
     }
 
     //maze solution
@@ -70,7 +70,7 @@ public class Maze{
     public void setSolution(){
         Node n = goal;
         while(n != start){
-            Node next = n.getParent();
+            Node next = n.getParent(0);   //TODO fix this logic
             maze[next.getX()][next.getY()] = '.';
             n = next;
         }

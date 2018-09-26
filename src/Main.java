@@ -9,8 +9,10 @@ public class Main{
         Maze test = new Maze("src/testMaze.txt");
         test.printMaze();
 
-        System.out.println(test.getStart().getX() + ", " + test.getGoal().getX());
-        System.out.println(test.getStart().getY() + ", " + test.getGoal().getY());
+        test.buildGraph();
+        //test.setSolution();
+        System.out.println("solved Maze: ");
+        test.printMaze();
         
     }
 }

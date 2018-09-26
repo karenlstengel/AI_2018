@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Maze{
     private char[][] maze;
@@ -58,11 +59,22 @@ public class Maze{
 
     //build maze.
     // start at the location of the start node previously saved and then create the search space graph
-    // by checking each possible movement (still waiting to see if diagonal movements are allowed) and adding possible
+    // by checking each possible movement, 3 remaining directions excluding the parent,  and adding possible
     // moves to the children lists. continue until every non % has been added
+    public void buildGraph(){
+        //do stuff here yay
+    }
 
     //maze solution
-    // backtrack the shortest (or one of) solution path and change that coordinate in the maze to a '.'
+    // backtrack the final solution path and change those coordinate in the maze to a '.'
+    public void setSolution(){
+        Node n = goal;
+        while(n != start){
+            Node next = n.getParent();
+            maze[next.getX()][next.getY()] = '.';
+            n = next;
+        }
+    }
 
     //print maze
     // basic array print
@@ -81,7 +93,6 @@ public class Maze{
     public void setSearch(IAlgorithm s){
         search = s;
     }
-
     public Node getStart(){
         return start;
     }

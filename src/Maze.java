@@ -1,8 +1,7 @@
 import java.io.*;
-import java.util.ArrayList;
 
 public class Maze{
-    private char[][] maze;
+    private Node[][] maze;
     private Node start;
     private Node goal;
     private IAlgorithm search;
@@ -16,8 +15,8 @@ public class Maze{
 
     //readMazeFile
     //read in the file using a scanner class instance.
-    public char[][] readMazeFile(File file){
-        char[][] mArray = null;
+    public Node[][] readMazeFile(File file){
+        Node[][] mArray = null;
         try{
             BufferedReader in = new BufferedReader(new FileReader(file));
 
@@ -31,13 +30,13 @@ public class Maze{
 
             BufferedReader inMaze = new BufferedReader(new FileReader(file));
 
-            mArray = new char[rows][col];
+            mArray = new Node[rows][col];
 
             for(int i = 0; i < rows; i++){
                 String inLine = inMaze.readLine();
                 for(int j = 0; j < inLine.length(); j++) {
                     char c = inLine.charAt(j);
-                    mArray[i][j] = c;
+                    mArray[i][j] = new Node(i,j,c);
                 }
             }
 
@@ -52,17 +51,23 @@ public class Maze{
 
     //build maze.
     //create a temporary 2d array of same size as maze. create a new node for each index with the x,y coords and the symbol.
-    // THEN, start at the location of the start node previously saved and then create the search space graph
+    // THEN, start at the beginning of the graph create the search space graph
     // by checking each possible movement, 3 remaining directions excluding the parent,  and adding possible
     // moves to the children lists. continue until every non % has been added  (should have a skeleton form of the maze
-    public void buildGraph(Node n){
-        // for later
-        // if(c == 'P'){
-        //                        start = new Node(i,j, c);
-        //                    }
-        //                    if(c == '*'){
-        //                        goal = new Node(i,j,c);
-        //                    }
+    public void buildGraph(){
+
+        for(int i = 0; i < maze.length; i++){
+            for(int j = 0; j < maze[0].length; j++){
+                //if getSymbol == '%'
+                    // do nothing
+                //elseif getSymbol == '*'
+                    // set connections and set as goal node
+                //elseif getSymbol == 'P'
+                    //set connections and set as start node
+                //else (getSymbol) == ' '
+                    //set connections
+            }
+        }
     }
 
     //maze solution
@@ -70,8 +75,8 @@ public class Maze{
     public void setSolution(){
         Node n = goal;
         while(n != start){
-            Node next = n.getParent(0);   //TODO fix this logic
-            maze[next.getX()][next.getY()] = '.';
+            Node next = n.getParent();
+            maze[next.getX()][next.getY()].setSymbol('.');
             n = next;
         }
     }
@@ -82,7 +87,7 @@ public class Maze{
 
         for(int i = 0; i <maze.length; i++){
             for(int j = 0; j < maze[0].length; j++){
-                System.out.print(maze[i][j]);
+                System.out.print(maze[i][j].getSymbol());
             }
             System.out.println();
         }

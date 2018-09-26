@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Node{
     private int x;
     private int y;
-    private ArrayList<Node> children;
+    private ArrayList<Node> connections;
     private Boolean visited;
-    private ArrayList<Node> parents;
+    private Node parent;
     private char symbol;
     private int cost;
 
@@ -25,7 +25,7 @@ public class Node{
     }
 
     public void addChild(Node node){
-        children.add(node);
+        connections.add(node);
     }
 
     public void setSymbol(char symbol){
@@ -37,7 +37,7 @@ public class Node{
     }
 
     public void addParent(Node parent) {
-        parents.add(parent);
+        this.parent = parent;
     }
 
     //get methods
@@ -49,8 +49,8 @@ public class Node{
         return symbol;
     }
 
-    public Node getParent(int i) {
-        return parents.get(i);
+    public Node getParent() {
+        return parent;
     }
 
     public int getX(){
@@ -61,7 +61,7 @@ public class Node{
         return y;
     }
 
-    public ArrayList<Node> getChildren() {
-        return children;
+    public Node getChild(int i) {
+        return connections.get(i);
     }
 }

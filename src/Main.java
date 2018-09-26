@@ -9,7 +9,7 @@ public class Main{
         Maze test = new Maze("src/testMaze.txt");
         test.printMaze();
 
-        test.buildGraph(test.getStart());
+        test.buildGraph();
         //test.setSolution();
         System.out.println("solved Maze: ");
         test.printMaze();

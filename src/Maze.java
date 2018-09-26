@@ -27,7 +27,6 @@ public class Maze{
                 rows++;
                 col = line.length();
             }
-            System.out.println(rows + ", " +  col);
 
             BufferedReader inMaze = new BufferedReader(new FileReader(file));
             int temp =0;
@@ -35,9 +34,10 @@ public class Maze{
             for(int i = 0; i < rows; i++){
                 for(int j = 0; j < col; j++){
                     char c = (char)inMaze.read();
+                    System.out.print(c);
                     if(c != '\n') {
                         mArray[i][j] = c;
-                        System.out.print(temp++ + " " + mArray[i][j]);
+                        //System.out.print(mArray[i][j]);
                     }
                 }
                 System.out.println();

@@ -1,3 +1,3 @@
 public interface IAlgorithm {
-        public void search(Node start);
+    public void search(Node start);
 }

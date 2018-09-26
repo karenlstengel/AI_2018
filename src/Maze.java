@@ -37,6 +37,13 @@ public class Maze{
                 for(int j = 0; j < inLine.length(); j++) {
                     char c = inLine.charAt(j);
                     mArray[i][j] = c;
+
+                    if(c == 'P'){
+                        start = new Node(i,j, c);
+                    }
+                    if(c == '*'){
+                        goal = new Node(i,j,c);
+                    }
                 }
             }
 
@@ -73,5 +80,12 @@ public class Maze{
     // change search var to whichever search is desired
     public void setSearch(IAlgorithm s){
         search = s;
+    }
+
+    public Node getStart(){
+        return start;
+    }
+    public Node getGoal(){
+        return goal;
     }
 }

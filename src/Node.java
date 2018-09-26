@@ -5,7 +5,7 @@ public class Node{
     private int y;
     private ArrayList<Node> children;
     private Boolean visited;
-    private Node parent;
+    private ArrayList<Node> parents;
     private char symbol;
     private int cost;
 
@@ -36,8 +36,8 @@ public class Node{
         this.cost = cost;
     }
 
-    public void setParent(Node parent) {
-        this.parent = parent;
+    public void addParent(Node parent) {
+        parents.add(parent);
     }
 
     //get methods
@@ -49,8 +49,8 @@ public class Node{
         return symbol;
     }
 
-    public Node getParent() {
-        return parent;
+    public Node getParent(int i) {
+        return parents.get(i);
     }
 
     public int getX(){

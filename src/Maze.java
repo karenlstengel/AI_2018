@@ -61,8 +61,8 @@ public class Maze{
     // start at the location of the start node previously saved and then create the search space graph
     // by checking each possible movement, 3 remaining directions excluding the parent,  and adding possible
     // moves to the children lists. continue until every non % has been added
-    public void buildGraph(){
-        //do stuff here yay
+    public void buildGraph(Node n){
+        //recursion?
     }
 
     //maze solution

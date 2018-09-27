@@ -61,6 +61,10 @@ public class Node{
         return y;
     }
 
+    public ArrayList<Node> getConnections(){
+        return connections;
+    }
+
     public Node getChild(int i) {
         return connections.get(i);
     }

@@ -56,15 +56,10 @@ public class Maze{
     // moves to the children lists. continue until every non % has been added  (should have a skeleton form of the maze
     public void buildGraph(){ //leave parent as null until search/solution is done
         //want to ignore the boundaries
-        System.out.println();
-        for(int i = 1; i < maze.length - 1; i++) {
-            for (int j = 1; j < maze[0].length - 1; j++) {
-                System.out.print(maze[i][j].getSymbol());
-            }
-            System.out.println();
-        }
+
         for(int i = 1; i < maze.length - 1; i++){
             for(int j = 1; j < maze[0].length - 1; j++){
+                //System.out.print(maze[i][j].getSymbol());
                 //if getSymbol == ' '
                 if(maze[i][j].getSymbol() == ' '){
                     //set connections
@@ -81,6 +76,7 @@ public class Maze{
                     }
                     if(maze[i + 1][j].getSymbol() != '%'){
                         //set connections
+
                         if(!maze[i][j].getConnections().contains(maze[i+1][j])){
                             //add next node to i,j's children list
                             maze[i][j].addChild(maze[i+1][j]);

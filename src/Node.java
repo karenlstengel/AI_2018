@@ -16,6 +16,7 @@ public class Node{
         this.symbol = symbol;
         visited = false;
         cost = 0;
+        connections = new ArrayList<Node>();
     }
 
     //set methods

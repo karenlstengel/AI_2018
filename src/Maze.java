@@ -50,13 +50,13 @@ public class Maze{
     }
 
     //build maze.
-    //create a temporary 2d array of same size as maze. create a new node for each index with the x,y coords and the symbol.
-    // THEN, start at the beginning of the graph create the search space graph
-    // by checking each possible movement, 3 remaining directions excluding the parent,  and adding possible
+    //go thru each node in the array ignoring teh boundaries since they should not be added as possible moves.
+    // for each non-wall node,add all non-wall nodes to connections unless a given node is already in connections.
+    // also add the current node to each of its connections' connections unless it is already there
     // moves to the children lists. continue until every non % has been added  (should have a skeleton form of the maze
-    public void buildGraph(){ //leave parent as null until search/solution is done
+    public void buildGraph(){
+        //leave parent as null until search/solution is done
         //want to ignore the boundaries
-
         for(int i = 1; i < maze.length - 1; i++){
             for(int j = 1; j < maze[0].length - 1; j++){
                 //System.out.print(maze[i][j].getSymbol());

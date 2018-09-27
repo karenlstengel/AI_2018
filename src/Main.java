@@ -6,6 +6,8 @@ public class Main{
         test.printMaze();
 
         test.buildGraph();
+        test.setSearch(new AStar());
+        test.search.search(test.getStart());
         //test.setSolution();
         System.out.println("solved Maze: ");
         test.printMaze();

@@ -4,7 +4,7 @@ public class Maze{
     private Node[][] maze;
     private Node start;
     private Node goal;
-    private IAlgorithm search;
+    public IAlgorithm search;
 
     //constructor.
     // read in file and save to the maze array. if the char == P, create a new node for start; if char ==*, create a goal node

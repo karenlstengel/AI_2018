@@ -1,3 +1,9 @@
+/*
+    @author Karen Stengel
+    Maze class to create and maintain an array of Nodes representing the maze
+ */
+
+
 import java.io.*;
 
 public class Maze{

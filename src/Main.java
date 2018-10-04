@@ -1,4 +1,7 @@
-
+/*
+    @authors Karen Stengel, Jared Thompson, Tim Wells
+    Project for using search algorithms to solve a maze.
+ */
 public class Main{
     public static void main(String args[]){
 

@@ -1,3 +1,8 @@
+/*
+    @author Karen Stengel, Jared Thompson
+    Node class for each spot of the maze and storing a nodes local connections
+ */
+
 import java.util.ArrayList;
 
 public class Node{

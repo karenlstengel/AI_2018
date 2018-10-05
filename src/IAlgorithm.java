@@ -3,5 +3,5 @@
  */
 
 public interface IAlgorithm {
-    public void search(Node start);
+    public void search(Maze maze);
 }

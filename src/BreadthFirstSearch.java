@@ -6,7 +6,7 @@
 
 public class BreadthFirstSearch implements IAlgorithm{
     @Override
-    public void search(Node start){
+    public void search(Maze maze){
 
     }
 }

@@ -5,7 +5,7 @@
 
 public class AStar implements IAlgorithm{
     @Override
-    public void search(Node start){
+    public void search(Maze maze){
 
     }
 }

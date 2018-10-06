@@ -11,7 +11,7 @@ public class BreadthFirstSearch implements IAlgorithm{
     public void search(Maze maze){
         Node node = maze.getStart();
         boolean found = false;
-        LinkedList<Node> frontier = new LinkedList<Node>();
+        LinkedList<Node> frontier = new LinkedList<Node>();  //using as queue implementation
         frontier.addFirst(node);
 
         //while node has children
@@ -28,7 +28,7 @@ public class BreadthFirstSearch implements IAlgorithm{
                         // dont add child to queue
                     //else add child to queue and mark as visited.
             // remove node from queue
-            // set fronteir.getfirst() as node
+            // set frontier.getfirst() as node
         }
 
     }

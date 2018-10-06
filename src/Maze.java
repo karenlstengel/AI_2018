@@ -216,7 +216,7 @@ public class Maze{
                 //else (getSymbol) == '%'
                 else{
                     // do nothing; remove. just for visualization
-                    System.out.println("You are a wall.");
+                    //System.out.println("You are a wall.");
                 }
             }
         }
@@ -244,6 +244,23 @@ public class Maze{
             System.out.println();
         }
     }
+    /*
+    public void resetMaze()
+    {
+        for(int i = 0; i < maze.length; i++)
+        {
+            for(int j = 0; j < maze[0].length; j++)
+            {
+                maze[i][j].setPointer(null);
+                maze[i][j].setUnvisited();
+            }
+        }
+        //change everything back to unvisited and delete CopyNode pointers
+    }  */
+    public Node[][] getMaze()
+    {
+        return maze;
+    }
 
     //set search type
     // change search var to whichever search is desired
@@ -256,4 +273,5 @@ public class Maze{
     public Node getGoal(){
         return goal;
     }
+
 }

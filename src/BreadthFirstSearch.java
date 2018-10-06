@@ -9,10 +9,10 @@ import java.util.LinkedList;
 public class BreadthFirstSearch implements IAlgorithm{
     @Override
     public void search(Maze maze){
-        System.out.println("BFS");
+        //System.out.println("BFS");
         Node node = maze.getStart();
         Node goal = maze.getGoal();
-        boolean found = false;
+
         LinkedList<Node> frontier = new LinkedList<Node>();  //using as queue implementation
         frontier.addFirst(node);
         int expanded = 0;
@@ -22,7 +22,7 @@ public class BreadthFirstSearch implements IAlgorithm{
             // for each child of node
             node = frontier.removeFirst();
             expanded++;
-            System.out.println("expanded: " + expanded);
+            //System.out.println("expanded: " + expanded);
 
             for(int i = 0; i < node.getConnections().size(); i++) {
 
@@ -43,22 +43,19 @@ public class BreadthFirstSearch implements IAlgorithm{
                         node.getConnections().get(i).addParent(node);
                         node.getConnections().get(i).getConnections().remove(node);
                     }
-                    System.out.println(node.getConnections().get(i).getParent());
+                    //System.out.println(node.getConnections().get(i).getParent());
 
                     // check if they are the goal node.
                     //if they are goal; set found = true
                     // dont add child to queue
                     //else add child to queue and mark as visited.
-                    if (node.getConnections().get(i) == goal) {
-                        found = true;
-                    }
                     if (!node.getConnections().get(i).getVisited()) {
                         frontier.addLast(node.getConnections().get(i));
                         node.getConnections().get(i).setVisited();
                     }
 
             }
-            System.out.println(frontier.size());
+            //System.out.println(frontier.size());
 
         }
             maze.setSolution();

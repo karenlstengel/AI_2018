@@ -228,7 +228,6 @@ public class Maze{
         Node n = goal;
 
         while(n != start){
-            System.out.println(n.getX() + ", " + n.getY());
             Node next = n.getParent();
             maze[next.getX()][next.getY()].setSymbol('.');
             n = next;

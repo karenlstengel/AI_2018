@@ -5,7 +5,7 @@
 public class Main{
     public static void main(String args[]){
 
-        Maze test = new Maze("src/testMaze.txt");
+        Maze test = new Maze("src/openMaze.txt");
         test.printMaze();
 
         test.buildGraph();

@@ -35,11 +35,13 @@ public class BreadthFirstSearch implements IAlgorithm{
 
                         node.getConnections().get(i).setCost(node.getCost() + 1);
                         node.getConnections().get(i).addParent(node);
+                        node.getConnections().get(i).getConnections().remove(node);
 
 
                     } else {
                         node.getConnections().get(i).setCost(node.getCost() + 1);
                         node.getConnections().get(i).addParent(node);
+                        node.getConnections().get(i).getConnections().remove(node);
                     }
                     System.out.println(node.getConnections().get(i).getParent());
 

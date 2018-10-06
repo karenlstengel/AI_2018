@@ -226,7 +226,9 @@ public class Maze{
     // backtrack the final solution path and change those coordinate in the maze to a '.'
     public void setSolution(){
         Node n = goal;
+
         while(n != start){
+            System.out.println(n.getX() + ", " + n.getY());
             Node next = n.getParent();
             maze[next.getX()][next.getY()].setSymbol('.');
             n = next;

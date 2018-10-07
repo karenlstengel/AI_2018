@@ -5,7 +5,50 @@
 
 public class DepthFirstSearch implements IAlgorithm{
     @Override
-    public void search(Node start){
+    public void search(Maze maze){
+    Node start; 
+    
+    start = maze.getStart(); 
+    Stack<Node> A = new Stack();
+    A.push(start);
+    Node current; 
+    A.push(start); 
+    start.setVisited();
+  
+    while(!A.isEmpty())
+    {
+      current = A.peek();
+      if (current.getSymbol() == '*')
+      {
+          break; 
+      }
+      
+      A.pop(); 
+    if(!current.getConnections().isEmpty())
+    {
+        for (int i = 0; i < current.getConnections().size(); i++)
+        {
+            if(current.getConnections().get(i).getVisited() == false)
+            {
+                A.push(current.getConnections().get(i)); //push all children that have not been visited onto the stack; LIFO
+            }
+         
+        }
+        current.setVisited();
+        current.setSymbol('.');
+    } 
+    else
+    {
+        current.setVisited(); 
+        current.setSymbol('.');
+        
+    }
+    }
+        
+        
+    start.setSymbol('P'); //for my own sake to keep track of where we started. 
+    }   
+}
 
     }
 }

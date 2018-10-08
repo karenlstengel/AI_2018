@@ -6,6 +6,54 @@
 public class DepthFirstSearch implements IAlgorithm{
     @Override
     public void search(Maze maze){
-
+    Node start; 
+    int cost = 0; 
+    int expanded = 0; 
+    start = maze.getStart(); 
+    Stack<Node> A = new Stack();
+    A.push(start);
+    Node current; 
+    A.push(start); 
+    start.setVisited();
+    int cost1 = 0; 
+    int expanded1 = 0; 
+  
+    while(!A.isEmpty())
+    {
+      current = A.peek();
+      cost1++;
+      if (current.getSymbol() == '*')
+      {
+          break; 
+      }
+      
+      A.pop(); 
+       
+    if(!current.getConnections().isEmpty())//if it has connections
+    {
+        for (int i = 0; i < current.getConnections().size(); i++)
+        {
+            if(current.getConnections().get(i).getVisited() == false)
+            {
+                A.push(current.getConnections().get(i));
+                expanded1++; 
+                //push all children that have not been visited onto the stack; LIFO
+            }
+         
+        }
+        current.setVisited();
+        current.setSymbol('.');
+    } 
+    else
+    {
+        current.setVisited(); 
+        current.setSymbol('.');
+        
+    }
+    }
+        
+    System.out.println("The cost is " + cost1 + " Nodes expanded is " + (cost1 + expanded1));
+    start.setSymbol('P'); //for my own sake to keep track of where we started. 
+    }   
     }
 }
